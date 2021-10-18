@@ -1,0 +1,3 @@
+[submodule "themes/pelican-hyde-custom"]
+	path = themes/pelican-hyde-custom
+	url = https://github.com/CreateRandom/pelican-hyde.git
