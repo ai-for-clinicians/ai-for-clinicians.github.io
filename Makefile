@@ -70,5 +70,9 @@ publish:
 
 ftp_upload: publish
 	lftp sftp://$(INPUT_FTP_HOST):22 -u $(INPUT_FTP_USER),$(INPUT_FTP_PASSWORD) -e "set sftp:auto-confirm yes ; mirror -R $(OUTPUTDIR) $(FTP_TARGET_DIR) ; quit"
+	
+github: publish
+	ghp-import $(OUTPUTDIR)
+	git push origin gh-pages
 
-.PHONY: html help clean regenerate serve serve-global devserver publish ftp_upload
+.PHONY: html help clean regenerate serve serve-global devserver publish ftp_upload github
