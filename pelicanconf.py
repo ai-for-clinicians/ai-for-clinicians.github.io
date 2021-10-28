@@ -30,6 +30,15 @@ LINKS = ()
 
 # Social widget
 SOCIAL = ()
+# don't display all pages, just the specified ones
+DISPLAY_PAGES_ON_MENU = False
+
+def format_to_url(elem):
+    return elem.lower().replace(' ', '-') + '.html'
+
+sidebar_pages = ['Clinical questions', 'A plethora of tools','A common infrastructure',
+                'A vision for the future', 'About the project']
+MENUITEMS = [(x, format_to_url(x)) for x in sidebar_pages]
 
 DEFAULT_PAGINATION = False
 
