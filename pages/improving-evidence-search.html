@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+	<head>
+		<link href="http://gmpg.org/xfn/11" rel="profile">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+		<!-- Metadata -->
+			<meta name="description" content="" />
+			<meta property="og:description" content="" />
+			<meta property="og:title" content="AI for Clinical Search" />
+			<meta property="og:type" content="website" />
+			<meta property="og:url" content=".." />
+		<meta property="og:image" content="../images/health-book-fill_inv.png" />
+
+		<!-- Enable responsiveness on mobile devices-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+		<title>AI for Clinical Search - Improving evidence search</title>
+
+		<!-- CSS -->
+		<link href="//fonts.googleapis.com/" rel="dns-prefetch">
+		<link href="//fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic|Abril+Fatface|PT+Sans:400,400italic,700&amp;subset=latin,latin-ext" rel="stylesheet">
+
+		<link rel="stylesheet" href="../theme/css/poole.css" />
+		<link rel="stylesheet" href="../theme/css/hyde.css" />
+		<link rel="stylesheet" href="../theme/css/syntax.css" />
+			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.1.7/css/fork-awesome.min.css" crossorigin="anonymous">
+
+		<!-- Feeds -->
+
+		<!-- Analytics -->
+	</head>
+
+	<body class="theme-base-0d">
+<div class="sidebar">
+	<div class="container sidebar-sticky">
+		<div class="sidebar-about">
+
+			<h1>
+				<a href="/">
+					<img class="profile-picture" src="../images/health-book-fill_inv.png">
+					AI for Clinical Search
+				</a>
+			</h1>
+			<p class="lead"></p>
+			<p class="lead"> </p>
+			<p></p>
+		</div>
+			<ul class="sidebar-nav">
+					<li><a href="../pages/clinical-questions.html">Clinical questions</a></li>
+					<li><a href="../pages/improving-evidence-search.html">Improving evidence search</a></li>
+					<li><a href="../pages/engine-comparison.html">Engine comparison</a></li>
+					<li><a href="../pages/a-common-infrastructure.html">A common infrastructure</a></li>
+					<li><a href="../pages/a-vision-for-the-future.html">A vision for the future</a></li>
+					<li><a href="../pages/about-the-project.html">About the project</a></li>
+			</ul>
+		<nav class="sidebar-social">
+		</nav>
+			<p class="sidebar-footer">© 2021</p>
+	</div>
+</div>		<div class="content container">
+    <h1>Improving evidence search</h1>
+    
+
+    <p><img alt="Tool icon" src="/images/hammer-line.png" style="max-width:25%"></p>
+<h1>Summary</h1>
+<p>How many people have built lots of tools to make <strong>evidence search</strong> easier and faster. What good ideas they already had. How tools still fall short of what clinicians and reviewers need. How developing tools is often hard, as previous work cannot be re-used. How we do not know how design decisions affect search outcomes.</p>
+<h1>Evidence search engines</h1>
+<p>How can clinicians answer a research question with relevant primary literature? They could run a search via PubMed, the most famous and widely used search engine for biomedical questions that is operated by the National Library of Medicine (NLM). Thanks to its detailed human-curated indexing and article classification by study type, PubMed makes it possible to run fine-grained searches with high precision. PubMed has become an institutional standard, being mandated as one of the primary tools for running literature searches during the creation of systematic reviews. However, it is also somewhat unwieldy to use and necessarily less innovative than other vendors who offer a less well established product. For this reason, over the years, there have been countless efforts to build an evidence search engine that goes beyond what PubMed offers, adding functionalities such as automatic generation of indexing terms to reduce the time until new articles become indexed or machine-aided aggregation functions that do more than just retrieving abstracts of relevant articles. A 2011 survey<sup>[<a href="#reference1">1</a>]</sup> of 28 such search engines distinguishes four areas which they aim to improve, namely the ranking of search results, allowing a clustering of results by topic, extracting and displaying semantics and improving the search interface. Many of them have since been deprecated, but features and ideas first promoted by them have occasionally been added into PubMed itself. In the 10 years since the survey came out, the production of supposedly innovative clinical search engine prototypes has only accelerated. Especially during the Covid-19 pandemic, teams all across the world raced to build search tools for helping clinicians find answers in the similarly rapidly expanding literature on the disease. A 2020 survey<sup>[<a href="#reference2">2</a>]</sup> identifies 30 search tools created in response to the pandemic, most of which indexed the same corpus and differ in implementation and design, with innovative features such as automatic summarization being mixed in in some instances.</p>
+<p>Apparently, searching for the right search tool is its own problem these days if one aims to maximize one's use of innovative technology. However, unfortunately proper evaluation of the utility of some of the proposed changes is very widespread. Most of the evaluation done up this point follows classical information retrieval paradigms, mostly trying to optimize the search engine's ability to rank documents deemed relevant to a given query higher than irrelevant ones, but failing to quantize the actual effects that using the search engine has on clinical practice. Recent research<sup>[<a href="#reference3">3</a>]</sup> demonstrated that higher relevance scores obtained by intensive tweaking and optimization on behalf of the IR researchers did not help one search engine to outperform a simple baseline when it comes to actually improving how clinicians put to practice the results of their search. In other words, even though one search engine was ranking the most relevant documents higher than the other ones, the conclusions that the clinicians derived had the same chance of being unfounded by the evidence. The authors find that beyond retrieving relevant documents, helping users understand the documents they're reading in context is a crucial ability of search engines that is overlooked in the current evaluation protocol.</p>
+<h1>Evaluating current tools</h1>
+<p>To help the inform the design of clinical search engines, we delineated a number of criteria that clinicians value when performing a critical appraisal of the literature. We also evaluated a small set of innovative general-purpose evidence search engines based on them.</p>
+<p><em>Trialstreamer and the whole list of products we discovered. More controlled search queries thanks to PICO indexing. Filtering by resource type (e.g. clinical trial).</em></p>
+<p><em>In the search area, we can discuss what J and his colleague find to be useful features in their evaluation. We find that many useful functionalities are already there, but isolated and spread across products, yielding a frustrating user experience that prevents further up-take. We also find a distinct potential for re-using existing work that is currently not leveraged. A more detailed comparison will be linked to via <a href="engine-comparison.html">separate page</a>.</em></p>
+<h1>Building tools is hard</h1>
+<p>To create a useful tool, there is usually a lot of up-front work required, ingesting huge and ever-growing corpora of research documents, pre-processing to apply certain techniques, such as named entity recognition or article classification. A tool then needs to be maintained, which is costly and requires manual effort. Frequently, tools are created as offshoots from temporally limited research projects, so once the funding runs out, support does too. In a risk-averse sector such as health care, this tenuous situation further hampers up-take, as clinicians are wary of investing the time to learn to use a new tool that might be gone the next year. </p><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+
+<html>
+<head><meta content="Pybtex" name="generator"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Bibliography</title>
+</head>
+<body>
+<dl>
+<dt id="reference1">[1]</dt>
+<dd>Zhiyong Lu.
+<span class="bibtex-protected">PubMed and beyond: A survey of web tools for searching biomedical literature</span>.
+<em>Database</em>, jan 2011.
+URL: <a href="https://academic.oup.com/database/article/doi/10.1093/database/baq036/460587">https://academic.oup.com/database/article/doi/10.1093/database/baq036/460587</a>, <a href="https://doi.org/10.1093/database/baq036">doi:10.1093/database/baq036</a>.</dd>
+<dt id="reference2">[2]</dt>
+<dd>Lucy Lu Wang and Kyle Lo.
+<span class="bibtex-protected">Text mining approaches for dealing with the rapidly expanding literature on COVID-19</span>.
+<em>Briefings in Bioinformatics</em>, 2020(0):1–19, dec 2020.
+URL: <a href="https://academic.oup.com/bib/advance-article/doi/10.1093/bib/bbaa296/6024738">https://academic.oup.com/bib/advance-article/doi/10.1093/bib/bbaa296/6024738</a>, <a href="https://doi.org/10.1093/bib/bbaa296">doi:10.1093/bib/bbaa296</a>.</dd>
+<dt id="reference3">[3]</dt>
+<dd>Anton Vegt, Guido Zuccon, and Bevan Koopman.
+<span class="bibtex-protected">Do better search engines really equate to better clinical decisions? If not, why not?</span>
+<em>Journal of the Association for Information Science and Technology</em>, 72(2):141–155, feb 2021.
+URL: <a href="https://onlinelibrary.wiley.com/doi/10.1002/asi.24398">https://onlinelibrary.wiley.com/doi/10.1002/asi.24398</a>, <a href="https://doi.org/10.1002/asi.24398">doi:10.1002/asi.24398</a>.</dd>
+</dl></body></html>
+
+
+		</div>
+	</body>
+</html>
